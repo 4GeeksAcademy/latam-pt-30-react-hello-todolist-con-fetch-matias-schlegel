@@ -9,7 +9,7 @@ const Home = () => {
 	const [tasks, setTasks] = useState([]); //me ayude un poco con el video y le deje el nombre
 	return (
 		<React.Fragment>
-				<h1>tasks</h1>
+				<h1>Todos</h1>
 			<div className="container">
 					<div className="list">
 						<ul>
