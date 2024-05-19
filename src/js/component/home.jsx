@@ -13,7 +13,7 @@ const Home = () => {
 			<div className="container">
 					<div className="list">
 						<ul>
-							<li>
+							<li key={tasks.id}>
 								<input 
 								type="text" 
 								placeholder="What needs to be done?"
@@ -23,14 +23,21 @@ const Home = () => {
 								value={inputValue} // muestra el valor de inputValue
 								onKeyDown={(event) => { //cuando precionas cierta tecla se ejecuta la funcion
 									if (event.key == "Enter") {
+										if (inputValue.trim() == "") {
+											alert("No se pueden mandar espacios en blancos!!, escribe una tarea!!")
+										} else {
 										setTasks([...tasks, inputValue]); //actualiza dicho estado con un nuevo array que contiene los anteriores
 										setInputValue("") // para borrar cuando tocas enter
-									}
+										  }	
+									} 
 								}}
 								/>
 							</li>
-							{tasks.map((task) => (
-							<li className="containerLi">
+							<li style={{ display: tasks.length > 0 ? 'none' : 'block' }}>
+								<strong>No hay tareas agrega una!!</strong>
+							</li>
+							{tasks.map((task, index) => (
+							<li key={index} className="containerLi">
 								{task} 
 								<button
 								type="reset"
