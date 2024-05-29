@@ -7,8 +7,6 @@ import "../styles/index.css";
 import "../styles/buttonClearTask.css";
 
 //import your own components
-import Home from "./component/home.jsx";
-import HomeDos from "./component/homeDos.jsx";
 import { Fetch } from "./component/Fetch.jsx";
 
 //render your react application
