@@ -82,6 +82,9 @@ export const Fetch = () => {
       if (responseDeleteTask.ok == false) {
         throw new Error("Levante un error en deleteTask");
       }
+
+      const updatedTasks = tasks.filter((task) => task.id !== id);
+      setTasks(updatedTasks);
     } catch (error) {
       console.log("cath error deleteTask: ", error);
     }
@@ -112,6 +115,7 @@ export const Fetch = () => {
 
   useEffect(() => {
     sincronizar();
+    getUserAgain();
   }, []);
 
   return (
